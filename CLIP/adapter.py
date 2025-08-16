@@ -35,8 +35,8 @@ class CLIP_Inplanted(nn.Module):
         self.clipmodel = clip_model
         self.image_encoder = clip_model.visual
         self.features = features
-        self.seg_adapters = nn.ModuleList( [ClipAdapter(1024, bottleneck=768) for i in range(len(features))] )
-        self.det_adapters = nn.ModuleList( [ClipAdapter(1024, bottleneck=768) for i in range(len(features))] )
+        # self.seg_adapters = nn.ModuleList( [ClipAdapter(1024, bottleneck=768) for i in range(len(features))] )
+        # self.det_adapters = nn.ModuleList( [ClipAdapter(1024, bottleneck=768) for i in range(len(features))] )
 
 
     def forward(self, x):
