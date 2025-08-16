@@ -62,14 +62,14 @@ def main():
     model = CLIP_Inplanted(clip_model=clip_model, features=args.features_list).to(device)
     model.eval()
 
-    checkpoint = torch.load(os.path.join(f'{args.save_path}', f'{args.obj}.pth'))
-    model.seg_adapters.load_state_dict(checkpoint["seg_adapters"])
-    model.det_adapters.load_state_dict(checkpoint["det_adapters"])
+    # checkpoint = torch.load(os.path.join(f'{args.save_path}', f'{args.obj}.pth'))
+    # model.seg_adapters.load_state_dict(checkpoint["seg_adapters"])
+    # model.det_adapters.load_state_dict(checkpoint["det_adapters"])
 
 
-    # optimizer for only adapters
-    seg_optimizer = torch.optim.Adam(list(model.seg_adapters.parameters()), lr=args.learning_rate, betas=(0.5, 0.999))
-    det_optimizer = torch.optim.Adam(list(model.det_adapters.parameters()), lr=args.learning_rate, betas=(0.5, 0.999))
+    # # optimizer for only adapters
+    # seg_optimizer = torch.optim.Adam(list(model.seg_adapters.parameters()), lr=args.learning_rate, betas=(0.5, 0.999))
+    # det_optimizer = torch.optim.Adam(list(model.det_adapters.parameters()), lr=args.learning_rate, betas=(0.5, 0.999))
 
 
     # load dataset and loader
